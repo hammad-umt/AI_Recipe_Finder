@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | AI Recipe Finder</title>
+  <meta name="description" content="Learn more about AI Recipe Finder and our mission."/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563eb',
+            secondary: '#10b981',
+            accent: '#f59e0b'
+          }
+        }
+      }
+    };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+</head>
+
+<body class="bg-gradient-to-br from-blue-50 to-green-50 min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-white shadow-lg relative">
+    <div class="container mx-auto px-4 py-6 flex flex-col items-center">
+    
+        <!-- Centered Navbar -->
+      <nav class="mt-4">
+        <ul class="flex space-x-8">
+          <li>
+            <a href="{{ url_for('index' ) }}" class="text-gray-700 hover:text-indigo-600 font-medium transition">Suggest Cuisine</a>
+          </li>
+          <li>
+            <a href="{{ url_for('getrecipe') }}" class="text-gray-700 hover:text-indigo-600 font-medium transition">Get Recipe</a>
+          </li>
+          <li>
+            <a href="{{ url_for('aboutus') }}" class="text-indigo-600 font-semibold">About Us</a>
+          </li>
+        </ul>
+      </nav>
+        <!-- Centered Icon & Title -->
+      <div class="flex flex-col items-center mb-4">
+        <i class="fas fa-utensils text-4xl text-primary mb-2"></i>
+        <h1 class="text-3xl font-bold text-gray-800">AI Recipe Finder</h1>
+        <p class="text-gray-600">Turn your ingredients into delicious meals</p>
+      </div>
+
+      
+
+      <!-- Dashboard & Logout Buttons -->
+      <div class="absolute right-4 top-6 flex space-x-4">
+        <a href="{{ url_for('dashboard') }}" class="text-indigo-500 hover:text-indigo-600 transition text-xl">
+          <i class="fas fa-user"></i>
+        </a>
+        <form action="{{ url_for('logout') }}" method="POST">
+          <button type="submit" class="text-red-500 hover:text-red-600 transition text-xl">
+            <i class="fas fa-sign-out-alt"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-12 flex-grow">
+    <div class="bg-white rounded-lg shadow-lg p-8 max-w-3xl mx-auto">
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">About Us</h2>
+      <p class="text-gray-600 mb-4">
+        AI Recipe Finder is your smart kitchen assistant — built to help you turn everyday ingredients into delicious dishes with the power of AI.
+      </p>
+      <p class="text-gray-600 mb-4">
+        Our mission is to make cooking easy, creative, and fun for everyone, whether you're an experienced chef or just starting your culinary journey.
+      </p>
+      <p class="text-gray-600 mb-4">
+        This project is developed by <span class="font-semibold text-primary">Hammad Ur Rehman</span> as part of my learning journey in Software Engineering.
+      </p>
+      <p class="text-gray-600 mb-4">
+        I would like to express my heartfelt gratitude to <span class="font-semibold text-primary">Professor M. Bilal</span> for his excellent teaching, guidance, and motivation throughout this course, which inspired me to build this application.
+      </p>
+      <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-2">Our Vision</h3>
+      <p class="text-gray-600 mb-4">
+        We envision a world where AI helps everyone cook healthy, tasty meals at home — bringing families together and inspiring creativity in the kitchen.
+      </p>
+      <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-2">Contact Us</h3>
+      <p class="text-gray-600">
+        Have feedback or questions? Reach out to us at <a href="mailto:hammadurrehmanse@gmail.com" class="text-primary hover:underline">hammadurrehmanse@gmail.com</a>.
+      </p>
+       <div class="mt-6 bg-indigo-100 border-l-4 border-indigo-500 text-indigo-700 p-4 rounded-lg">
+    <p class="font-medium">Special thanks to Professor M. Bilal</p>
+    <p class="text-sm">For his guidance and teaching in this course.</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8 mt-12">
+    <div class="container mx-auto px-4 text-center">
+      <p>&copy; 2025 AI Recipe Finder. Powered by Hammad with &hearts; to help you cook smart.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | AI Recipe Finder</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body class="flex flex-col justify-between bg-gradient-to-r from-purple-500 to-indigo-600 min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-white shadow">
+    <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+      <h1 class="text-3xl font-bold text-indigo-700">Dashboard</h1>
+      <form action="{{ url_for('logout') }}" method="GET">
+        <button type="submit" class="text-red-600 hover:text-red-800 transition">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+      </form>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-10">
+    <div class="bg-white rounded-lg shadow-lg p-6">
+      <h2 class="text-2xl font-semibold mb-4 text-gray-800">Welcome, {{username}}!</h2>
+      <p class="text-gray-600 mb-6">Here is your AI Recipe Finder Dashboard.</p>
+
+      <!-- Example cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-indigo-100 p-4 rounded-lg shadow hover:shadow-lg transition">
+          <h3 class="text-lg font-semibold text-indigo-700 mb-2">Suggest Cuisines</h3>
+          <p class="text-gray-700">Find cuisines based on ingredients you have.</p>
+          <a href="{{ url_for('index' ) }}" class="inline-block mt-3 text-indigo-600 hover:underline">Try Now</a>
+        </div>
+
+        <div class="bg-purple-100 p-4 rounded-lg shadow hover:shadow-lg transition">
+          <h3 class="text-lg font-semibold text-purple-700 mb-2">Get Recipes</h3>
+          <p class="text-gray-700">Get full recipes and cooking steps.</p>
+          <a href="{{ url_for('getrecipe' ) }}" class="inline-block mt-3 text-purple-600 hover:underline">Get Recipe</a>
+        </div>
+
+        <div class="bg-green-100 p-4 rounded-lg shadow hover:shadow-lg transition">
+          <h3 class="text-lg font-semibold text-green-700 mb-2">About Us</h3>
+          <p class="text-gray-700">Know About Us</p>
+          <a href="{{ url_for('aboutus' ) }}" class="inline-block mt-3 text-green-600 hover:underline">View About Us</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+    <footer class="bg-gray-800 text-white py-8  w-full">
+    <div class="container mx-auto px-4 text-center">
+      <p>&copy; 2025 AI Recipe Finder. Powered by Hammad with &hearts; to help you cook smart.</p>
+    </div>
+  </footer>
+</body>
+</html>

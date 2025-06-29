@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body class="flex flex-col items-center justify-between min-h-screen bg-gradient-to-r from-purple-500 to-indigo-500">
+
+  <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-6 text-center text-indigo-600">Sign Up</h2>
+    <form id="signupForm" method="POST" action="{{ url_for('signup') }}">
+
+      <div class="mb-4">
+        <label class="block mb-2 text-sm font-medium text-gray-600">Name</label>
+        <input type="text" name="name" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400" placeholder="Enter your name" required />
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-2 text-sm font-medium text-gray-600">Email</label>
+        <input type="email" name="email" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400" placeholder="Enter your email" required />
+      </div>
+
+      <div class="mb-6">
+        <label class="block mb-2 text-sm font-medium text-gray-600">Password</label>
+        <div class="relative">
+          <input type="password" id="password" name="password" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400" placeholder="Create a password" required />
+          <i id="togglePassword" class="fa-solid fa-eye absolute right-3 top-3 text-gray-500 cursor-pointer"></i>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <label class="block mb-2 text-sm font-medium text-gray-600">Confirm Password</label>
+        <div class="relative">
+          <input type="password" id="confirmPassword" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400" placeholder="Confirm password" required />
+          <i id="toggleConfirmPassword" class="fa-solid fa-eye absolute right-3 top-3 text-gray-500 cursor-pointer"></i>
+        </div>
+      </div>
+
+      <button type="submit" class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition">Sign Up</button>
+    </form>
+
+    <p class="mt-4 text-center text-sm text-gray-600">Already have an account? 
+      <a href="{{ url_for('login') }}" class="text-indigo-600 hover:underline">Login</a>
+    </p>
+  </div>
+
+    <footer class="bg-gray-800 text-white py-8 mt-12 w-full">
+    <div class="container mx-auto px-4 text-center">
+      <p>&copy; 2025 AI Recipe Finder. Powered by Hammad with &hearts; to help you cook smart.</p>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+      let pass = document.getElementById('password').value;
+      let confirmPass = document.getElementById('confirmPassword').value;
+      if (pass !== confirmPass) {
+        e.preventDefault(); // stop form submission
+        document.getElementById('confirmPassword').style.borderColor = 'red'; // highlight the field
+        document.getElementById('confirmPassword').setCustomValidity("Passwords do not match");
+      } else {
+        document.getElementById('confirmPassword').setCustomValidity("");
+      }
+    });
+
+    togglePassword = document.getElementById('togglePassword');
+    togglePassword.addEventListener('click', function() {
+      const passwordInput = document.getElementById('password');
+      const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput.setAttribute('type', type);
+      this.classList.toggle('fa-eye-slash');
+    });
+
+    toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
+    toggleConfirmPassword.addEventListener('click', function() {
+      const confirmPasswordInput = document.getElementById('confirmPassword');
+      const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      confirmPasswordInput.setAttribute('type', type);
+      this.classList.toggle('fa-eye-slash');
+    });
+  </script>
+</body>
+</html>
